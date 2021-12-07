@@ -79,7 +79,7 @@ def create_template(project_id, region, yaml_file):
                         for value in enum_list:
                             enum_value = datacatalog.FieldType.EnumType.EnumValue()
                             enum_value.display_name = value
-                            field.type.enum_type.allowed_values.append(enum_value)
+                            field.type_.enum_type.allowed_values.append(enum_value)
                             
                             field.display_name = display
                             field.is_required = required
@@ -89,7 +89,7 @@ def create_template(project_id, region, yaml_file):
                     elif datatype.lower() == "bool":
                         
                         field = datacatalog.TagTemplateField()
-                        field.type.primitive_type = datacatalog.FieldType.PrimitiveType.BOOL
+                        field.type_.primitive_type = datacatalog.FieldType.PrimitiveType.BOOL
                         field.display_name = display
                         field.is_required = required
                         field.order = order
@@ -98,7 +98,7 @@ def create_template(project_id, region, yaml_file):
                     elif datatype.lower() == "string":
                         
                         field = datacatalog.TagTemplateField()
-                        field.type.primitive_type = datacatalog.FieldType.PrimitiveType.STRING
+                        field.type_.primitive_type = datacatalog.FieldType.PrimitiveType.STRING
                         field.display_name = display
                         field.is_required = required
                         field.order = order
@@ -107,7 +107,7 @@ def create_template(project_id, region, yaml_file):
                     elif datatype.lower() == "double":
                         
                         field = datacatalog.TagTemplateField()
-                        field.type.primitive_type = datacatalog.FieldType.PrimitiveType.DOUBLE
+                        field.type_.primitive_type = datacatalog.FieldType.PrimitiveType.DOUBLE
                         field.display_name = display
                         field.is_required = required
                         field.order = order
@@ -116,7 +116,7 @@ def create_template(project_id, region, yaml_file):
                     elif datatype.lower() == "timestamp":
                         
                         field = datacatalog.TagTemplateField()
-                        field.type.primitive_type = datacatalog.FieldType.PrimitiveType.TIMESTAMP
+                        field.type_.primitive_type = datacatalog.FieldType.PrimitiveType.TIMESTAMP
                         field.display_name = display
                         field.is_required = required
                         field.order = order
