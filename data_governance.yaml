@@ -1,0 +1,63 @@
+template:
+- name: data_governance
+  display_name: "Data Governance Template"
+  fields:
+    - field: data_governor
+      type: string
+      display: "Data Governor"
+      required: true
+      description: "Name of the Data Governor responsible for the governance of the data asset"
+      order: 8
+    - field: business_owner
+      type: string
+      display: "Business Owner"
+      required: true
+      description: "Email from the person who can help better understanding this data and is maintaining this catalog tags (Maintainer Email)"
+      order: 7
+    - field: data_classfication
+      type: enum
+      values: Public|Sensitive|Confidential
+      display: "Data Classification"
+      required: true
+      description: "The data classification of the asset: Public, Sensitive and Confidential"
+      order: 6
+    - field: data_lifecycle
+      type: enum
+      values: Development|Test|Production|Deprecated|Other
+      display: "Data Lifecycle"
+      required: true
+      description: "The lifecycle stage of the asset"
+      order: 5
+    - field: has_pii
+      type: boolean
+      display: "Has PII"
+      required: true
+      description: "PII is any information about an individual maintained by an agency, including (1) any information that can be used to distinguish or trace an individual‘s identity, such as name, social security number, date and place of birth, mother‘s maiden name, or biometric records; and (2) any other information that is linked or linkable to an individual, such as medical, educational, financial, and employment information."
+      order: 4
+    - field: origin_object_type
+      type: enum
+      values: Table|View|Materialised_View|File|Dataset|Other
+      display: "Origin Object Type"
+      required: true
+      description: "The origin of the object (example: table, view, etc)"
+      order: 3
+    - field: schema_type
+      type: enum
+      values: Raw_Data_Warehouse|Data_Mart|Sandbox
+      display: "Schema Type"
+      required: true
+      description: "Kind of schema describes if this schema is part of the general \"data warehouse\", if it is a \"data mart\" for a business analysis or if it is a \"sandbox\" for general experiments."
+      order: 2
+    - field: origin_description
+      type: string
+      display: "Origin Description"
+      required: true
+      description: "Where is this schema imported from. It should mention the main origin of the data in terms of business. For instance, if it is a schema imported form a Web service of a 3rd party entity like \"Min. Economia data Web Service\"."
+      order: 1
+    - field: updated_engine
+      type: enum
+      values: Composer_Airflow|Manual|Chron_Job|Api_or_Application
+      display: "Update Engine"
+      required: true
+      description: "The engine that provides the data"
+      order: 0
