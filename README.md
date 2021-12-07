@@ -1,3 +1,6 @@
+#UPDATED BY BI4ALL TEAM
+
+
 ## datacatalog-templates
 
 This repository contains sample Tag Templates in yaml-format and a [`create_template.py`](create_template.py) script that takes as input the yaml-formatted template and creates an actual Tag Template in Google Cloud's Data Catalog service. 
