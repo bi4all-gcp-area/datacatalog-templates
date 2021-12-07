@@ -54,6 +54,7 @@ def create_template(project_id, region, yaml_file):
                     enum_values = None
                     display_name = None
                     required = False
+                    description = None
                     
                     for fname, fval in field.items():
                         print(fname + "->" + str(fval))
@@ -70,6 +71,8 @@ def create_template(project_id, region, yaml_file):
                             required = fval
                         if fname == "order":
                             order = fval
+                        if fname == "description":
+                            description = fval
                    
                     if datatype.lower() == "enum":
                         
@@ -84,6 +87,7 @@ def create_template(project_id, region, yaml_file):
                             field.display_name = display
                             field.is_required = required
                             field.order = order
+                            field.description = description
                             tag_template.fields[field_id] = field
                             
                     elif datatype.lower() == "bool":
@@ -93,6 +97,7 @@ def create_template(project_id, region, yaml_file):
                         field.display_name = display
                         field.is_required = required
                         field.order = order
+                        field.description = description
                         tag_template.fields[field_id] = field
                     
                     elif datatype.lower() == "string":
@@ -102,6 +107,7 @@ def create_template(project_id, region, yaml_file):
                         field.display_name = display
                         field.is_required = required
                         field.order = order
+                        field.description = description
                         tag_template.fields[field_id] = field
                     
                     elif datatype.lower() == "double":
@@ -111,6 +117,7 @@ def create_template(project_id, region, yaml_file):
                         field.display_name = display
                         field.is_required = required
                         field.order = order
+                        field.description = description
                         tag_template.fields[field_id] = field
                     
                     elif datatype.lower() == "timestamp":
@@ -120,6 +127,7 @@ def create_template(project_id, region, yaml_file):
                         field.display_name = display
                         field.is_required = required
                         field.order = order
+                        field.description = description
                         tag_template.fields[field_id] = field
                     
         created_template = dc_client.create_tag_template(parent=f'projects/{project_id}/locations/{region}', tag_template_id=tag_template_id, tag_template=tag_template)               
